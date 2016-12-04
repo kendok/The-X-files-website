@@ -2,10 +2,10 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 01, 2016 at 03:58 PM
--- Server version: 5.7.16-log
--- PHP Version: 7.0.10
+-- Host: localhost:3306
+-- Generation Time: Dec 03, 2016 at 08:08 PM
+-- Server version: 10.1.9-MariaDB-log
+-- PHP Version: 7.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,24 +28,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `productName` text,
+  `productName` varchar(255) DEFAULT NULL,
+  `productCode` varchar(255) DEFAULT NULL,
   `productPrice` float DEFAULT NULL,
-  `productCode` text,
   `productImage` text,
   `productDesc` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `productName`, `productPrice`, `productCode`, `productImage`, `productDesc`) VALUES
-(1, 'The -X-Files(I WANT TO BELIEVE)DVD', 25, 'xfiles1', 'images/movie2.jpg', 'A missing-persons case leads to the agents&#39; reunion, along with an encounter with a priest'),
-(2, 'The -X- Files (Fight the future DVD)', 25, 'FTF', 'images/movie1.jpg', 'In a small Texas town, a mysterious black substance emanating from the remains of a prehistoric human engulfs a young boy and his rescuers'),
-(3, 'Glow in Dark Poster', 20, 'glow', 'images/fan2.jpg', 'This is a glow in the dark handmade poster '),
-(4, 'Poster The truth is out there ', 20, 'Poster2', 'images/fan1.jpg', 'This is an original drawing by fox moulder himself'),
-(5, 'Hoody made with real alien flesh', 35, 'hood', 'images/hoody.jpg', 'Protect yourself from all weathers and also has cloaking abilitys so aliens cant see you '),
-(6, 'The -X-files Socks', 25, 'sock', 'images/socks.jpg', 'A perfect gift for your alien loving friend that has everything !! Can never have to many socks');
+INSERT INTO `products` (`id`, `productName`, `productCode`, `productPrice`, `productImage`, `productDesc`) VALUES
+(1, 'The -X- files', 'spooky', 15, 'images/movie2.jpg', 'The X-Files (also known as The X-Files: Fight the Future) is a 1998 American science fiction film directed by Rob Bowman. Chris Carter wrote the screenplay. The story is by Carter and Frank Spotnitz.'),
+(2, 'The -X-Files (Fight the Future DVD)', 'FTF', 25, 'images/movie1.jpg', 'In a small Texas town, a mysterious black substance emanating from the remains of a prehistoric human engulfs a young boy and his rescuers.'),
+(3, 'Glow in the Dark Poster', 'glow', 25, 'images/fan2.jpg', 'This is a glow in the Dark handmade poster. '),
+(4, 'Poster the Truth is Out there', 'poster20', 20, 'images/fan1.jpg', 'This is an original poster drawn by Fox Moulder himself.'),
+(5, 'Hoody ', 'Hoody', 35, 'images/hoody.jpg', 'Made from genuine alien flesh,Protect yourself from all weather and also has cloaking abilities So aliens Cant see you. '),
+(6, 'The -X- Files Socks', 'socks', 15, 'images/socks.jpg', 'A perfect gift for your alien loving friend that has everything !!! Can never have to many socks.');
 
 -- --------------------------------------------------------
 
@@ -65,8 +65,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `user_image`) VALUES
-(66, 'admin', '$2y$10$MIxHBG2MRj4HBXtqvhNohu7pP1l.oOVDONBe8aXaYArneEV36y.x.', 'images/mattSmith.jpg'),
-(70, 'ken', '$2y$10$nGd4We3elazB.4.ivVJEiOKMNYwigws1M072FozUUtYft30sU88Sa', 'images/ken.jpg');
+(56, 'admin', '$2y$10$aC23/AkYg96beQfzk8oPE.Bf.y3mH10sc.FNeF1YuRI71bEbyFOGW', 'images/mattSmith.jpg'),
+(63, 'Ken', '$2y$10$0eoVN3mQehb2lBjaupTWGOgulVDVpQfI.77d9RM8AhpdBTVOlh1Bq', 'images/ken.jpg');
 
 --
 -- Indexes for dumped tables
@@ -92,12 +92,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
